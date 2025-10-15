@@ -1,0 +1,535 @@
+{
+  "site": {
+    "name": "Site Forger",
+    "domain_hint": "siteforger.com",
+    "mission": "We build clean, modern websites that help blue-collar businesses win more local customers.",
+    "audience": ["Construction", "HVAC", "Plumbing", "Electrical", "Landscaping", "Trucking", "Cleaning", "Roofing", "Remodeling"],
+    "style_system": {
+      "design_language": "Clean, modern, tech-startup inspired; generous whitespace; soft edges; subtle depth (shadows at 8–16); no skeuomorphic or heavy-industrial textures.",
+      "typography": {
+        "display": "Inter or SF Pro Display, 700/800 weight for H1/H2",
+        "body": "Inter or System UI, 400/500 for paragraphs and UI",
+        "scale": {"h1": "40–56", "h2": "28–36", "h3": "22–24", "body": "16–18", "caption": "13–14"},
+        "letter_spacing": "Tight for headings, normal for body",
+        "line_height": "1.3–1.6"
+      },
+      "color_palette": {
+        "background": "#F7F9FC",
+        "surface": "#FFFFFF",
+        "ink": "#0F172A",
+        "muted_ink": "#475569",
+        "primary": "#2563EB",
+        "primary_hover": "#1E40AF",
+        "accent": "#10B981",
+        "border": "#E5E7EB",
+        "focus_ring": "#93C5FD"
+      },
+      "components_style": {
+        "button": "Rounded-xl (16–20), medium weight, clear hover/active, focus ring visible",
+        "card": "Rounded-2xl, soft shadow, 24px padding",
+        "nav": "Sticky top, translucent on scroll, blur backdrop"
+      },
+      "non_goals": ["No AI/robot motifs", "No harsh neon", "No heavy textured metal/diamond plate"],
+      "accessibility": {
+        "min_contrast_ratio": 4.5,
+        "focus_visible": true,
+        "hit_targets_min": "44px"
+      }
+    },
+    "seo": {
+      "title_template": "%s — Site Forger",
+      "meta_description": "Modern, mobile-friendly websites with SEO and Google Business optimization for blue-collar businesses. Fast turnaround. Clean design. Real results.",
+      "open_graph": {
+        "site_name": "Site Forger",
+        "image_alt": "Site Forger — Websites that work as hard as you do"
+      },
+      "schema_org": {
+        "organization": {
+          "@type": "Organization",
+          "name": "Site Forger",
+          "url": "https://siteforger.com",
+          "sameAs": []
+        }
+      }
+    },
+    "navigation": {
+      "primary": [
+        {"label": "Home", "href": "/"},
+        {"label": "Services", "href": "/services"},
+        {"label": "Templates", "href": "/templates"},
+        {"label": "About", "href": "/about"},
+        {"label": "FAQ", "href": "/faq"},
+        {"label": "Contact", "href": "/contact", "variant": "primary"}
+      ],
+      "footer": {
+        "columns": [
+          {
+            "heading": "Company",
+            "links": [
+              {"label": "About", "href": "/about"},
+              {"label": "FAQ", "href": "/faq"},
+              {"label": "Contact", "href": "/contact"}
+            ]
+          },
+          {
+            "heading": "Services",
+            "links": [
+              {"label": "Websites", "href": "/services#websites"},
+              {"label": "SEO", "href": "/services#seo"},
+              {"label": "Google Business", "href": "/services#google-business"}
+            ]
+          },
+          {
+            "heading": "Templates",
+            "links": [
+              {"label": "Addy", "href": "/templates/addy"},
+              {"label": "Marcus", "href": "/templates/marcus"},
+              {"label": "Cade", "href": "/templates/cade"}
+            ]
+          }
+        ],
+        "legal": "© Site Forger. All rights reserved."
+      }
+    }
+  },
+  "routes": [
+    {
+      "path": "/",
+      "alias": ["/home"],
+      "purpose": "Homepage focused on value proposition + SEO-first benefits.",
+      "sections": [
+        {
+          "type": "hero",
+          "content": {
+            "eyebrow": "Modern Websites • Local SEO",
+            "headline": "Websites that work as hard as you do.",
+            "subheadline": "Clean, mobile-friendly sites built to bring in more business. SEO-ready and easy to update.",
+            "primary_cta": {"label": "Get a Quote", "href": "/contact"},
+            "secondary_cta": {"label": "View Templates", "href": "/templates"},
+            "trust_badges": ["Mobile-Friendly", "SEO-Optimized", "Fast Turnaround"]
+          }
+        },
+        {
+          "type": "service_snapshot",
+          "grid": 3,
+          "cards": [
+            {
+              "title": "Website Design",
+              "description": "Modern builds with simple editing and fast loading.",
+              "cta": {"label": "See details", "href": "/services#websites"}
+            },
+            {
+              "title": "SEO Optimization",
+              "description": "On-page SEO, clean structure, and keyword-ready content.",
+              "cta": {"label": "See details", "href": "/services#seo"}
+            },
+            {
+              "title": "Google Business Presence",
+              "description": "Set up and optimize for Maps and local search.",
+              "cta": {"label": "See details", "href": "/services#google-business"}
+            }
+          ]
+        },
+        {
+          "type": "value_props",
+          "items": [
+            {"title": "Quick Turnaround", "text": "Launch in days, not months."},
+            {"title": "Built to Scale", "text": "Add pages, galleries, and forms anytime."},
+            {"title": "Made for Trades", "text": "Straightforward layouts your customers trust."}
+          ]
+        },
+        {
+          "type": "templates_preview",
+          "intro": "Preview three distinct styles you can pick and customize.",
+          "items": [
+            {"name": "Addie", "href": "/templates/addie", "tagline": "Airy, minimal, phone-first"},
+            {"name": "Marcus", "href": "/templates/marcus", "tagline": "Bold, full-width, image-driven"},
+            {"name": "Kade", "href": "/templates/kade", "tagline": "Confident, checklist-centric"}
+          ],
+          "cta": {"label": "Explore Templates", "href": "/templates"}
+        },
+        {
+          "type": "cta_banner",
+          "content": {
+            "headline": "Ready to win more local jobs?",
+            "subtext": "Tell us what you do. We’ll build a site that brings the calls.",
+            "button": {"label": "Start Your Project", "href": "/contact"}
+          }
+        }
+      ]
+    },
+    {
+      "path": "/services",
+      "purpose": "Detail the three core services.",
+      "sections": [
+        {
+          "type": "service_detail",
+          "id": "websites",
+          "title": "Websites",
+          "body": "Clean, modern websites designed around your business goals. Mobile-friendly, fast, and easy to navigate."
+        },
+        {
+          "type": "service_detail",
+          "id": "seo",
+          "title": "SEO Optimization",
+          "body": "We set up clear site structure, on-page SEO, and metadata so customers can find you when they search."
+        },
+        {
+          "type": "service_detail",
+          "id": "google-business",
+          "title": "Google Business Presence",
+          "body": "We create or optimize your Google Business Profile so you show up in local searches and on Maps."
+        },
+        {
+          "type": "cta_panel",
+          "title": "Need a website that pays for itself?",
+          "button": {"label": "Get a Quote", "href": "/contact"}
+        }
+      ]
+    },
+    {
+      "path": "/templates",
+      "purpose": "Index of the three showcase templates.",
+      "sections": [
+        {
+          "type": "template_cards",
+          "items": [
+            {
+              "name": "Addie",
+              "slug": "addie",
+              "summary": "Airy, minimal, phone-first layout with crisp information blocks.",
+              "href": "/templates/addie",
+              "cta": {"label": "View Addie", "href": "/templates/addie"}
+            },
+            {
+              "name": "Marcus",
+              "slug": "marcus",
+              "summary": "Bold, full-width visuals and strong headings for high impact.",
+              "href": "/templates/marcus",
+              "cta": {"label": "View Marcus", "href": "/templates/marcus"}
+            },
+            {
+              "name": "Kade",
+              "slug": "kade",
+              "summary": "Confident, checklist-centric layout that drives quick contact.",
+              "href": "/templates/kade",
+              "cta": {"label": "View Kade", "href": "/templates/kade"}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/templates/addie",
+      "purpose": "Template 1 — Addie: Airy, minimal, phone-first.",
+      "template_character": {
+        "layout": "Split hero (headline + quick-contact panel), stacked cards, ample whitespace.",
+        "tone": "Friendly, minimal, high readability.",
+        "use_cases": ["Solo contractors", "Small teams", "Service pros who want clarity first"],
+        "visuals": "Light imagery, subtle iconography, tight copy."
+      },
+      "sections": [
+        {
+          "type": "hero",
+          "content": {
+            "headline": "Get found. Get calls. Get to work.",
+            "subheadline": "A clean site that tells customers exactly what you do and how to reach you.",
+            "primary_cta": {"label": "Request a Quote", "href": "/contact"},
+            "secondary_cta": {"label": "See Services", "href": "/services"}
+          }
+        },
+        {
+          "type": "business_profile",
+          "placeholders": {
+            "business_name": "Acme Home Services",
+            "phone": "(555) 123-4567",
+            "email": "hello@acmehomeservices.com",
+            "office_address": "123 Main St, City, ST 00000",
+            "licenses_and_certifications": ["Licensed • Insured • Bonded"],
+            "brief_description": "Reliable repairs and installs done right the first time.",
+            "selling_points": ["Fair, upfront pricing", "On-time arrival", "Work guaranteed"]
+          },
+          "actions": [
+            {"label": "Call Now", "href": "tel:+15551234567"},
+            {"label": "Get a Free Estimate", "href": "/contact"}
+          ]
+        },
+        {
+          "type": "gallery_slider",
+          "images": ["placeholder1.jpg", "placeholder2.jpg", "placeholder3.jpg"]
+        },
+        {
+          "type": "contact_strip",
+          "content": {
+            "text": "Ready for a quick quote?",
+            "buttons": [
+              {"label": "Text Us", "href": "sms:+15551234567"},
+              {"label": "Email", "href": "mailto:hello@acmehomeservices.com"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/templates/marcus",
+      "purpose": "Template 2 — Marcus: Bold, full-width, image-driven.",
+      "template_character": {
+        "layout": "Full-bleed hero, alternating image/text bands, big typography, stat highlights.",
+        "tone": "Confident and energetic.",
+        "use_cases": ["Construction crews", "Roofing", "Landscaping where visuals matter"],
+        "visuals": "Large project images, strong H1/H2, short copy."
+      },
+      "sections": [
+        {
+          "type": "hero",
+          "content": {
+            "headline": "Stand out. Win bids. Grow fast.",
+            "subheadline": "Show your best work with a bold site that builds trust at a glance.",
+            "primary_cta": {"label": "Start Your Build", "href": "/contact"},
+            "secondary_cta": {"label": "Our Services", "href": "/services"}
+          }
+        },
+        {
+          "type": "highlights",
+          "stats": [
+            {"label": "Projects Completed", "value": "250+"},
+            {"label": "Avg. Response Time", "value": "<1 hr"},
+            {"label": "Service Areas", "value": "Citywide"}
+          ],
+          "badges": ["Licensed", "Insured", "Warranty Available"]
+        },
+        {
+          "type": "project_gallery",
+          "layout": "Masonry",
+          "images": ["proj1.jpg", "proj2.jpg", "proj3.jpg", "proj4.jpg"]
+        },
+        {
+          "type": "cta_band",
+          "content": {
+            "headline": "Ready to put your work front and center?",
+            "button": {"label": "Get a Quote", "href": "/contact"}
+          }
+        }
+      ]
+    },
+    {
+      "path": "/templates/kade",
+      "purpose": "Template 3 — Kade: Confident, checklist-centric conversion.",
+      "template_character": {
+        "layout": "Hero with proof checklist, process timeline, testimonial strip, sticky bottom CTA on mobile.",
+        "tone": "Direct, no-nonsense.",
+        "use_cases": ["HVAC", "Plumbing", "Electrical", "Emergency callouts"],
+        "visuals": "Clear checklist icons, minimal imagery, prominent contact options."
+      },
+      "sections": [
+        {
+          "type": "hero",
+          "content": {
+            "headline": "Fast service. Clear pricing. No surprises.",
+            "subheadline": "Your customers want answers and a number to call — give them both instantly.",
+            "primary_cta": {"label": "Call Now", "href": "tel:+15559876543"},
+            "secondary_cta": {"label": "Book Online", "href": "/contact"}
+          }
+        },
+        {
+          "type": "proof_checklist",
+          "items": [
+            "Licensed • Insured • Bonded",
+            "Upfront estimates",
+            "Same-day availability",
+            "1-year workmanship warranty"
+          ]
+        },
+        {
+          "type": "process_timeline",
+          "steps": [
+            {"title": "1) Request", "text": "Call or send a message"},
+            {"title": "2) Quote", "text": "Clear price before work"},
+            {"title": "3) Service", "text": "On-time arrival, clean work"},
+            {"title": "4) Follow-Up", "text": "We make sure you’re satisfied"}
+          ]
+        },
+        {
+          "type": "cta_footer",
+          "content": {
+            "headline": "Ready when you are.",
+            "buttons": [
+              {"label": "Call", "href": "tel:+15559876543"},
+              {"label": "Text", "href": "sms:+15559876543"},
+              {"label": "Get a Quote", "href": "/contact"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contact",
+      "purpose": "Lead capture with form, direct contact, and optional map.",
+      "sections": [
+        {
+          "type": "contact_intro",
+          "headline": "Let’s build your website.",
+          "subtext": "Tell us about your business and what you need. We’ll reply quickly with next steps."
+        },
+        {
+          "type": "contact_form",
+          "fields": [
+            {"name": "full_name", "label": "Full Name", "type": "text", "required": true},
+            {"name": "email", "label": "Email", "type": "email", "required": true},
+            {"name": "phone", "label": "Phone", "type": "tel", "required": false},
+            {"name": "business_name", "label": "Business Name", "type": "text", "required": false},
+            {"name": "message", "label": "What do you need?", "type": "textarea", "required": true}
+          ],
+          "submit": {"label": "Submit", "href": "/contact/thanks"},
+          "privacy_note": "We’ll only use your info to respond to your request."
+        },
+        {
+          "type": "direct_contact",
+          "items": [
+            {"label": "Email", "value": "hello@siteforger.com", "href": "mailto:hello@siteforger.com"},
+            {"label": "Phone", "value": "(555) 000-1212", "href": "tel:+15550001212"}
+          ]
+        },
+        {
+          "type": "map_embed",
+          "note": "Optional placeholder map — not city-specific; can center on a neutral location.",
+          "coordinates": {"lat": 29.7604, "lng": -95.3698}
+        }
+      ]
+    },
+    {
+      "path": "/about",
+      "purpose": "Short story of Site Forger and what clients can expect.",
+      "sections": [
+        {
+          "type": "story",
+          "headline": "Built for builders.",
+          "body": "We started Site Forger to give hardworking businesses a clean, modern web presence that actually brings in work. Simple, fast, and designed for results."
+        },
+        {
+          "type": "principles",
+          "items": [
+            {"title": "Clarity first", "text": "Customers should instantly know what you do and how to reach you."},
+            {"title": "Speed matters", "text": "Fast builds, fast sites, fast updates."},
+            {"title": "Local results", "text": "Everything we design helps you show up where it counts."}
+          ]
+        },
+        {
+          "type": "cta",
+          "button": {"label": "Work with us", "href": "/contact"}
+        }
+      ]
+    },
+    {
+      "path": "/about/short",
+      "purpose": "Ultra-brief version for quick reference or link previews.",
+      "sections": [
+        {
+          "type": "snippet",
+          "text": "Site Forger builds clean, modern websites for trades and service pros. SEO-ready, fast turnaround, and easy to use."
+        }
+      ]
+    },
+    {
+      "path": "/faq",
+      "purpose": "Answer common questions with real, ready-to-use copy.",
+      "sections": [
+        {
+          "type": "faq_list",
+          "items": [
+            {
+              "q": "How fast can you launch my site?",
+              "a": "Most websites launch within 7–14 days once we have your details and photos."
+            },
+            {
+              "q": "What do you need from me?",
+              "a": "Your business name, services, contact info, any licenses/certifications, and a few photos. We’ll guide you through the rest."
+            },
+            {
+              "q": "Can I update the site myself?",
+              "a": "Yes. We set you up with simple editing tools and provide a quick walkthrough."
+            },
+            {
+              "q": "Do you handle SEO?",
+              "a": "We handle on-page SEO and structure so you’re set up to rank. We also optimize your Google Business Profile."
+            },
+            {
+              "q": "What does it cost?",
+              "a": "Pricing depends on scope. Most clients start with a straightforward site and add features over time. Get a quick quote via the contact form."
+            }
+          ]
+        },
+        {
+          "type": "cta",
+          "button": {"label": "Didn’t see your question?", "href": "/contact"}
+        }
+      ]
+    },
+    {
+      "path": "/contact/thanks",
+      "purpose": "Submission confirmation.",
+      "sections": [
+        {
+          "type": "confirmation",
+          "headline": "Thanks — we’ll be in touch shortly.",
+          "subtext": "If it’s urgent, feel free to call us directly.",
+          "links": [
+            {"label": "Back to Home", "href": "/"},
+            {"label": "View Templates", "href": "/templates"}
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/privacy",
+      "purpose": "Basic privacy notice.",
+      "sections": [
+        {
+          "type": "policy",
+          "body": "We only use your information to respond to your inquiries and provide services you request."
+        }
+      ]
+    },
+    {
+      "path": "/sitemap",
+      "purpose": "Programmatic list of routes.",
+      "sections": [
+        {
+          "type": "links",
+          "items": ["/", "/services", "/templates", "/templates/addie", "/templates/marcus", "/templates/kade", "/about", "/about/short", "/faq", "/contact", "/contact/thanks", "/privacy"]
+        }
+      ]
+    }
+  ],
+  "components_blueprints": {
+    "gallery_slider": {"autoplay": true, "loop": true, "controls": true},
+    "contact_form": {"validation": "client + server", "spam_protection": "honeypot + rate limit", "success_redirect": "/contact/thanks"},
+    "map_embed": {"provider": "any", "zoom": 10, "pin_label": "Site Forger"},
+    "sticky_nav": {"hide_on_scroll_down": true, "show_on_scroll_up": true},
+    "footer_cta": {"text": "Ready to grow?", "button": {"label": "Start Your Project", "href": "/contact"}}
+  },
+  "buttons_should_work": true,
+  "templates_summary": {
+    "order_note": "Preview order on homepage: Addie (1), Marcus (2), Kade (3)",
+    "differences_explicit": [
+      {
+        "name": "Addy",
+        "layout": "Split hero with quick-contact; stacked info cards; airy spacing",
+        "tone": "Friendly and minimal",
+        "best_for": "Solo/Small teams needing clarity and fast contact"
+      },
+      {
+        "name": "Marcus",
+        "layout": "Full-bleed hero; alternating image/text bands; stat highlights; masonry gallery",
+        "tone": "Confident and visual",
+        "best_for": "Crews with strong project photos"
+      },
+      {
+        "name": "Cade",
+        "layout": "Checklist hero; process timeline; sticky mobile CTA",
+        "tone": "Direct and conversion-first",
+        "best_for": "Trades with urgent calls (HVAC, plumbing, electrical)"
+      }
+    ]
+  }
+}

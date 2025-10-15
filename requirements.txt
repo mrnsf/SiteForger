@@ -1,0 +1,120 @@
+# Site Forger - Requirements & Setup
+
+## Project Overview
+Site Forger is a modern React-based website builder platform specifically designed for blue-collar businesses. Built with TypeScript, Tailwind CSS, and Vite for optimal performance and developer experience.
+
+## System Requirements
+- Node.js 18.0.0 or higher
+- npm 9.0.0 or higher
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+
+## Dependencies
+
+### Core Framework
+- React 18.3.1 - UI library
+- TypeScript 5.6.2 - Type safety
+- Vite 6.0.1 - Build tool and dev server
+
+### Routing & Navigation
+- react-router-dom 7.1.0 - Client-side routing
+
+### Styling & UI
+- Tailwind CSS 3.4.17 - Utility-first CSS framework
+- PostCSS 8.5.8 - CSS processing
+- Autoprefixer 10.4.20 - CSS vendor prefixes
+
+### Development Tools
+- ESLint 9.17.0 - Code linting
+- @types/node - Node.js type definitions
+
+## Installation & Setup
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd SiteForger
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+5. Preview production build:
+   ```bash
+   npm run preview
+   ```
+
+## Project Structure
+```
+src/
+├── components/
+│   └── Layout/          # Header, Footer, Layout components
+├── pages/               # Page components
+├── assets/              # Static assets
+├── App.tsx              # Main app component with routing
+├── main.tsx             # App entry point
+└── index.css            # Global styles with Tailwind
+
+public/                  # Public assets
+tailwind.config.js       # Tailwind configuration
+postcss.config.js        # PostCSS configuration
+```
+
+## Features Implemented
+✅ Responsive design (mobile-first)
+✅ Modern React with TypeScript
+✅ Tailwind CSS design system
+✅ React Router navigation
+✅ Component-based architecture
+✅ SEO-friendly structure
+
+## Features In Development
+🔄 Dark/Light mode toggle
+🔄 Service pages
+🔄 Template showcase pages
+🔄 Contact forms
+🔄 Interactive components
+
+## Browser Support
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Performance Targets
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Cumulative Layout Shift: < 0.1
+- Time to Interactive: < 3.5s
+
+## Development Guidelines
+- Use TypeScript for all new components
+- Follow mobile-first responsive design
+- Implement proper accessibility (WCAG 2.1 AA)
+- Use semantic HTML elements
+- Optimize images and assets
+- Write clean, maintainable code
+
+## Deployment
+The project is configured for deployment on:
+- Vercel (recommended)
+- Netlify
+- GitHub Pages
+- Any static hosting service
+
+## Environment Variables
+No environment variables required for basic functionality.
+For production deployment, consider:
+- VITE_API_URL (if backend integration needed)
+- VITE_ANALYTICS_ID (for analytics tracking)

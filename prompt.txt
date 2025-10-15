@@ -1,0 +1,337 @@
+# Site Forger — Full PRD & Build Spec
+
+> Scope: Build [https://siteforger.com](https://siteforger.com) — a clean, modern marketing site that sells website packages to blue‑collar businesses. Includes three distinct demo templates (ADDY, MARC, CADE), SEO‑ready pages, and a strong contact funnel. No paid map vendor; use MapLibre only if/when maps are embedded.
+
+---
+
+## 1) Product Goals
+
+* Communicate value quickly: “Websites that work as hard as you do.”
+* Showcase **three distinct template styles** (ADDY, MARC, CADE) as living demos.
+* Drive qualified leads to **/contact** with a high‑trust, low‑friction form.
+* Be **responsive across desktop and mobile** (balanced, not mobile‑first). Design for parity at common breakpoints (≤390px, 768px, 1024px, 1280px+).
+* Be fast, accessible (WCAG AA+), and easy to extend.
+
+**Primary KPI:** contact form submissions / visitor.
+**Secondary KPIs:** template views, time‑to‑first‑paint (<1.5s on 4G), CLS < 0.1.
+
+---
+
+## 2) Audience
+
+Trades and local service businesses: Construction, HVAC, Plumbing, Electrical, Landscaping, Trucking, Cleaning, Roofing, Remodeling.
+
+---
+
+## 3) Brand & Style System (tokens)
+
+Use these tokens via Tailwind CSS (custom theme) + CSS variables.
+
+**Design language:** Clean, modern, startup‑like; generous whitespace; soft edges; subtle depth (shadows 8–16).
+**Typography:** Inter (or system), heading 700/800; body 400/500.
+**Scale:** h1 44–56 / h2 30–36 / h3 22–24 / body 16–18 / caption 13–14.
+**Line height:** 1.35–1.6.
+**Letter‑spacing:** tight headings; normal body.
+
+**Palette:**
+
+* bg: #F7F9FC
+* surface: #FFFFFF
+* ink: #0F172A
+* muted_ink: #475569
+* primary: #2563EB
+* primary_hover: #1E40AF
+* accent: #10B981
+* border: #E5E7EB
+* focus_ring: #93C5FD
+
+**Components style:**
+
+* Button: rounded‑xl (16–20), medium weight, clear hover/active, visible focus ring.
+* Card: rounded‑2xl, 24px padding, soft shadow.
+* Nav: sticky, translucent on scroll, backdrop‑blur.
+
+**Accessibility:** min contrast 4.5:1, focus visible, hit targets ≥ 44px.
+
+**Responsive layout guidance (balanced, not mobile‑first):**
+
+* Breakpoints: `sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, `2xl` 1536px.
+* Desktop grid defaults to 12 columns with 24px gutters; mobile stacks with intentional reflow (no collapsed walls of text).
+* Navigation: desktop shows full menu; mobile uses a sheet/drawer.
+* Typography scales down/up smoothly using clamp() to preserve hierarchy across sizes.
+
+---
+
+## 4) Information Architecture & Routes
+
+**Primary nav:** Home (/), Services (/services), Templates (/templates), About (/about), FAQ (/faq), Contact (/contact)
+
+**Routes**
+
+* `/` (alias `/home`)
+* `/services`
+* `/templates`
+* `/templates/addy` (vanity: `/addy`)
+* `/templates/marc` (vanity: `/marc`)
+* `/templates/cade` (vanity: `/cade`)
+* `/about` (+ `/about/short` for link previews)
+* `/faq`
+* `/contact` → `/contact/thanks`
+* `/privacy`
+* `/sitemap`
+
+**Footer nav:** Company, Services, Templates, legal.
+
+---
+
+## 5) Page Blueprints (UX + content)
+
+### 5.1 Home (/)
+
+**Hero**: Eyebrow “Modern Websites • Local SEO” → H1 “Websites that work as hard as you do.”
+Sub: “Clean, mobile‑friendly sites built to bring in more business. SEO‑ready and easy to update.”
+CTAs: primary “Get a Quote” → /contact ; secondary “View Templates” → /templates
+**Trust badges**: Mobile‑Friendly / SEO‑Optimized / Fast Turnaround
+
+**Service snapshot (3 cards)**: Websites / SEO / Google Business (cards link deep to #anchors).
+
+**Value props (3 items)**: Quick Turnaround / Built to Scale / Made for Trades.
+
+**Templates preview**: Inline cards for ADDY, MARC, CADE with short taglines. CTA → /templates
+
+**CTA banner**: “Ready to win more local jobs?” → Start Your Project.
+
+**Global UI**: sticky translucent nav, scroll‑aware; footer with CTA.
+
+### 5.2 Services (/services)
+
+Three sections with #websites, #seo, #google‑business. End with conversion panel “Need a website that pays for itself?” CTA → /contact.
+
+### 5.3 Templates (/templates)
+
+Index grid of 3 template cards. Each card: name, tone, thumbnail, CTA → detail routes.
+
+### 5.4 Template detail pages
+
+**ADDY (/templates/addy | /addy)**
+
+* Character: Airy, minimal, phone‑first.
+* Layout: Split hero (headline + quick contact), stacked cards, ample whitespace.
+* Sections: hero, business_profile block (with call/text/email buttons), gallery slider, contact strip.
+
+**MARC (/templates/marc | /marc)**
+
+* Character: Bold, full‑width, imagery‑driven.
+* Layout: full‑bleed hero, alternating image/text bands, stat highlights, masonry gallery, CTA band.
+
+**CADE (/templates/cade | /cade)**
+
+* Character: Direct, conversion‑first.
+* Layout: checklist hero (proof items), process timeline, testimonial strip, sticky mobile bottom CTA, CTA footer.
+
+Each detail page includes a top “Use this template” CTA → /contact?template={ADDY|MARC|CADE}.
+
+### 5.5 About (/about)
+
+Short origin story + principles + CTA.
+
+### 5.6 FAQ (/faq)
+
+Accordion list + CTA to contact.
+
+### 5.7 Contact (/contact)
+
+Intro → form (name, email, phone, business, message) with honeypot + server validation; direct contact items; optional neutral map embed (MapLibre). Success → /contact/thanks.
+
+---
+
+## 6) Distinctive UI Motifs (to avoid “generic AI UI”)
+
+* **ADDY motif**:
+
+  * Light “card stack” sections with subtle drop shadows (elevation 8).
+  * Quick‑contact chip row (Call / Text / Email) pinned under hero on mobile.
+  * Rounded avatars for testimonials; soft dividers.
+* **MARC motif**:
+
+  * Oversized H1 with tight tracking; full‑bleed image bands with parallax fade on scroll.
+  * Stat blocks with big numerals and micro‑labels; bold buttons with subtle shine on hover.
+  * Masonry gallery with smart cropping (object‑cover, 16:9 + square mix).
+* **CADE motif**:
+
+  * Checklist hero with animated checkmarks; sticky bottom CTA on mobile.
+  * Horizontal “process” timeline with numbered pills; contrasty callouts.
+  * Slot for emergency badges (24/7, same‑day) using accent color.
+
+Micro‑interactions with Framer Motion (fade/slide, spring 20–30). Keep tasteful; 200–300ms.
+
+---
+
+## 7) Component System
+
+* **Shell**: `Header`, `Footer`, `Container`, `Section`, `Grid` helpers.
+* **UI**: `Button`, `Badge`, `Card`, `Input`, `Textarea`, `Select`, `Chip`, `Accordion`, `Timeline`, `Stat`.
+* **Marketing**: `Hero`, `TrustRow`, `ValueProps`, `TemplateCard`, `GallerySlider`, `ContactStrip`, `CTA Banner`.
+* **Forms**: `ContactForm` with client+server validation, spam honeypot, rate‑limit.
+* **Map (optional)**: `MapLibreEmbed`.
+
+**Design tokens in Tailwind**: extend theme for colors, radii (xl/2xl), shadows (sm/md/lg/xl with blur 20–30), spacing scale.
+
+---
+
+## 8) Tech Stack & Conventions
+
+* **Framework:** **Next.js (React) + TypeScript**, chosen for **balanced responsive UI (desktop & mobile)** and SSR/ISR.
+* **Styling:** Tailwind CSS with custom tokens; CSS variables for theming; sticky nav + blur; responsive grid utilities.
+* **UI libs:** shadcn/ui for primitives; lucide-react icons.
+* **Animation:** Framer Motion with motion budget (200–300ms).
+* **Images:** Next/Image, responsive, lazy; `sizes` set for mobile first.
+* **SEO:** Next metadata API; title template “%s — Site Forger”; meta description; OG tags.
+* **Analytics:** simple pageview + form submit events (Plausible/umami or deferred).
+* **A11y:** keyboard traps avoided; focus rings; aria‑labels; semantic markup.
+* **PWA (optional):** add manifest + service worker in Phase 4 for better mobile UX.
+
+---
+
+## 9) MapLibre (Open, Free) — only if we embed a map
+
+* **Library**: MapLibre GL JS (`npm i maplibre-gl`)
+* **Docs**: [https://maplibre.org/maplibre-gl-js/docs/](https://maplibre.org/maplibre-gl-js/docs/)
+* **Quickstart style**: `https://demotiles.maplibre.org/style.json`
+* **Usage**: Add GeoJSON source + layers; no token required.
+* **Fallback**: If disabled, show static illustration.
+
+**Example embed spec**:
+
+* Center: neutral US coords; zoom 10; one pin with business label.
+* Height 360–420 on desktop, 240–300 on mobile.
+* Controls minimal (zoom only), wheel‑zoom off on mobile.
+
+---
+
+## 10) Content Model (JSON stubs)
+
+* **Templates list** used on Home and /templates (names, slugs, summaries, taglines).
+* **Service cards** (title, desc, href).
+* **FAQ items** (q, a).
+* **Business profile placeholders** per template.
+
+---
+
+## 11) File Tree & Routing (Next.js)
+
+```
+app/
+  layout.tsx
+  globals.css
+  page.tsx                 # Home
+  services/page.tsx
+  templates/page.tsx
+  templates/addy/page.tsx  # ADDY
+  templates/marc/page.tsx  # MARC
+  templates/cade/page.tsx  # CADE
+  about/page.tsx
+  about/short/page.tsx
+  faq/page.tsx
+  contact/page.tsx
+  contact/thanks/page.tsx
+  privacy/page.tsx
+  sitemap/page.tsx
+components/
+  ui/* (buttons, cards, inputs, accordion, timeline, stat)
+  marketing/* (hero, trust-row, template-card, gallery-slider, cta-banner)
+  layout/* (header, footer, container, section)
+lib/
+  content.ts (JSON stubs)
+  validators.ts (zod for forms)
+public/
+  images/* (placeholders)
+  icons/*
+```
+
+---
+
+## 12) Acceptance Criteria
+
+* ✅ All nav links and CTAs function (correct routes).
+* ✅ Three template pages visually distinct with the motifs above.
+* ✅ Contact form validates client+server, has honeypot, redirects to /contact/thanks.
+* ✅ Lighthouse: Performance ≥ 90, A11y ≥ 95, Best Practices ≥ 95, SEO ≥ 95.
+* ✅ SEO metadata present on all pages; OG image placeholder.
+* ✅ Responsive parity on desktop (≥1280px) and mobile (≤390px) looks polished; sticky bottom CTA in CADE on mobile.
+
+---
+
+## 13) Phase Plan
+
+* **Phase 0 (Scaffold)**: Next.js + Tailwind + shadcn/ui + tokens, header/footer, routes.
+* **Phase 1 (Homepage)**: hero, service cards, value props, templates preview, CTA banner.
+* **Phase 2 (Templates)**: implement ADDY → MARC → CADE motifs.
+* **Phase 3 (Services/About/FAQ/Contact)**: content + form + thanks.
+* **Phase 4 (Polish)**: motion, loading states, analytics, SEO.
+
+---
+
+## 14) Copy & Tone
+
+* Direct, friendly, trade‑respectful.
+* Avoid jargon and AI clichés.
+* Emphasize outcomes: calls, quotes, jobs won.
+
+---
+
+## 15) Risks & Mitigations
+
+* **Risk**: Templates feel samey.
+  **Mitigation**: enforce motif rules (layout, motion, typography scale, imagery treatment).
+* **Risk**: Form spam.
+  **Mitigation**: hidden honeypot + server rate limit (by IP) + minimal captcha only if abused.
+* **Risk**: Performance drifts.
+  **Mitigation**: image sizes, code‑split, preconnect fonts, motion budget.
+
+---
+
+## 16) Dev Prompts (for your AI Dev)
+
+**Scaffold Prompt:**
+“Create a Next.js (App Router) + TypeScript + Tailwind project named Site Forger. Implement the file tree in PRD §11, tokens from §3, and base layout header/footer. Add routes in §4. Use shadcn/ui for buttons, inputs, cards, accordion, and timeline, and lucide-react for icons. No external map tokens; if a map is needed use MapLibre and the demo style URL. Ensure a11y per §3 and acceptance criteria in §12.”
+
+**ADDY Prompt:**
+“On /templates/addy, implement ADDY motif from §6 with split hero, quick‑contact chips pinned on mobile, stacked card sections, gallery slider, and contact strip. Keep airy spacing, elevation 8 shadows, rounded‑2xl corners.”
+
+**MARC Prompt:**
+“On /templates/marc, implement bold full‑bleed hero, alternating image/text bands with subtle parallax, stat blocks, masonry gallery, and CTA band. Oversized type, tight tracking, confident tone.”
+
+**CADE Prompt:**
+“On /templates/cade, implement checklist hero with animated checkmarks, horizontal process timeline with numbered pills, sticky bottom CTA on mobile, and CTA footer. Conversion‑first layout.”
+
+**Contact Prompt:**
+“Build /contact form with client+server validation (zod), honeypot field ‘company_website’ hidden, rate limit 10/min/IP, and redirect to /contact/thanks on success.”
+
+---
+
+## 17) Content Stubs (lib/content.ts)
+
+* `services[]`: title, description, href.
+* `templates[]`: name (ADDY|MARC|CADE), slug, summary, tagline, href.
+* `faq[]`: q, a.
+* `businessProfilePlaceholders`: phone, email, address, selling_points[].
+
+---
+
+## 18) QA Checklist
+
+* All primary and secondary CTAs hit the right routes.
+* Nav becomes translucent with blur on scroll.
+* Focus rings visible across interactive elements.
+* Mobile sticky CTA present on CADE only.
+* Template detail page loads under 1.5s on 4G throttling.
+* OG tags render correct title/description.
+
+---
+
+## 19) Handoff Notes
+
+* Provide a single `brand-tokens.css` with CSS variables for future theming.
+* Export a simple `site.config.ts` to centralize nav, SEO defaults, and contact endpoints.
+* Add README with run scripts and deployment steps (Vercel).
