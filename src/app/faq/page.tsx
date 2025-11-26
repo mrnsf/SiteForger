@@ -154,11 +154,11 @@ export default function FAQPage() {
                 <p className="text-gray-600 mb-4">
                   Speak directly with our team
                 </p>
-                <a 
-                  href="tel:+1-555-123-4567"
+                <a
+                  href="tel:+18309289196"
                   className="text-blue-600 hover:text-blue-700 font-medium"
                 >
-                  (555) 123-4567
+                  +1 (830) 928-9196
                 </a>
               </div>
 
@@ -168,11 +168,11 @@ export default function FAQPage() {
                 <p className="text-gray-600 mb-4">
                   Get detailed answers via email
                 </p>
-                <a 
-                  href="mailto:hello@siteforger.com"
+                <a
+                  href="mailto:Siteforgerbusiness@gmail.com"
                   className="text-blue-600 hover:text-blue-700 font-medium"
                 >
-                  hello@siteforger.com
+                  Siteforgerbusiness@gmail.com
                 </a>
               </div>
 

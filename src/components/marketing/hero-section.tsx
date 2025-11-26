@@ -1,79 +1,90 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/animated-section';
-import { AnimatedButton } from '@/components/ui/animated-button';
-import { ArrowRight, CheckCircle, Star, Users, Award } from 'lucide-react';
+import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-24 lg:py-32 overflow-hidden">
+      {/* Animated mesh gradient background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[150px]"></div>
+      </div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <AnimatedSection delay={0.1} direction="fade">
-            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
-              <Award className="w-5 h-5 text-blue-600" />
-              <span className="text-sm font-semibold text-blue-700">
-                #1 Rated Website Service for Contractors
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-8 border border-white/20 shadow-soft-lg">
+              <Sparkles className="w-5 h-5 text-blue-400" />
+              <span className="text-sm font-semibold text-blue-200 tracking-wide">
+                Professional Websites for Service Businesses
               </span>
             </div>
           </AnimatedSection>
 
           {/* Main Headline */}
           <AnimatedSection delay={0.2} direction="up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              Professional Websites for{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Blue-Collar Businesses
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+              Websites That Work
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                As Hard As You Do
               </span>
             </h1>
           </AnimatedSection>
 
           {/* Subheadline */}
           <AnimatedSection delay={0.3} direction="up">
-            <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Get more customers with a website that works as hard as you do. 
+            <p className="text-xl md:text-2xl text-blue-100/80 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+              Get more customers with a professional website built to convert.
               <br className="hidden md:block" />
-              <span className="font-semibold text-gray-800">No tech skills required</span> – we handle everything from design to launch.
+              <span className="text-white font-medium">Launch in 7 days</span> — we handle everything.
             </p>
           </AnimatedSection>
 
-          {/* Value Props */}
+          {/* Value Props - Modern Pills */}
           <AnimatedSection delay={0.4} direction="up">
-            <div className="flex flex-wrap justify-center gap-8 mb-12 text-gray-700">
-              <div className="flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-green-200 hover:bg-white/80 transition-all duration-200">
-                <CheckCircle className="w-6 h-6 text-green-600" />
-                <span className="font-semibold">Ready in 7 Days</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-green-200 hover:bg-white/80 transition-all duration-200">
-                <CheckCircle className="w-6 h-6 text-green-600" />
-                <span className="font-semibold">Mobile-Optimized</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-green-200 hover:bg-white/80 transition-all duration-200">
-                <CheckCircle className="w-6 h-6 text-green-600" />
-                <span className="font-semibold">SEO Included</span>
-              </div>
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {[
+                { icon: Zap, text: "Ready in 7 Days" },
+                { icon: Shield, text: "Mobile-Optimized" },
+                { icon: CheckCircle, text: "SEO Included" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 bg-white/5 backdrop-blur-md rounded-full px-6 py-3 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                >
+                  <item.icon className="w-5 h-5 text-green-400" />
+                  <span className="font-semibold text-white text-sm">{item.text}</span>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
 
           {/* CTA Buttons */}
           <AnimatedSection delay={0.5} direction="up">
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-6 text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+              <Button
+                asChild
+                size="xl"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-6 text-lg font-bold rounded-2xl shadow-glow-md hover:shadow-glow-lg transform hover:scale-105 transition-all duration-300"
               >
                 <Link href="/contact" className="flex items-center gap-3">
                   Get Your Website Today
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-blue-300 text-blue-700 hover:bg-blue-50 px-10 py-6 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              <Button
+                asChild
+                variant="glass"
+                size="xl"
+                className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 px-10 py-6 text-lg font-bold rounded-2xl shadow-soft-lg hover:shadow-soft-xl transform hover:scale-105 transition-all duration-300"
               >
                 <Link href="/templates" className="flex items-center gap-3">
                   View Templates
@@ -82,47 +93,31 @@ export function HeroSection() {
             </div>
           </AnimatedSection>
 
-          {/* Social Proof */}
+          {/* Industries - Modern Design */}
           <AnimatedSection delay={0.6} direction="up">
-            <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-blue-600" />
-                <span className="text-gray-700 font-semibold">Quality First Approach</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-blue-600" />
-                <span className="text-gray-700 font-semibold">Personalized Service</span>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Trust Indicators */}
-          <AnimatedSection delay={0.7} direction="up">
-            <div className="pt-8 border-t border-blue-200">
-              <p className="text-sm text-gray-500 mb-6 font-medium">Trusted by businesses in:</p>
-              <div className="flex flex-wrap justify-center gap-6 text-base font-semibold text-gray-600">
-                <span className="bg-white/50 px-4 py-2 rounded-lg hover:bg-white/70 transition-all duration-200">Plumbing</span>
-                <span className="text-gray-400">•</span>
-                <span className="bg-white/50 px-4 py-2 rounded-lg hover:bg-white/70 transition-all duration-200">HVAC</span>
-                <span className="text-gray-400">•</span>
-                <span className="bg-white/50 px-4 py-2 rounded-lg hover:bg-white/70 transition-all duration-200">Construction</span>
-                <span className="text-gray-400">•</span>
-                <span className="bg-white/50 px-4 py-2 rounded-lg hover:bg-white/70 transition-all duration-200">Electrical</span>
-                <span className="text-gray-400">•</span>
-                <span className="bg-white/50 px-4 py-2 rounded-lg hover:bg-white/70 transition-all duration-200">Landscaping</span>
-                <span className="text-gray-400">•</span>
-                <span className="bg-white/50 px-4 py-2 rounded-lg hover:bg-white/70 transition-all duration-200">Auto Repair</span>
+            <div className="pt-12 border-t border-white/10">
+              <p className="text-sm text-blue-200/60 mb-6 font-medium uppercase tracking-wider">
+                Trusted by businesses in
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {['Plumbing', 'HVAC', 'Construction', 'Electrical', 'Landscaping', 'Auto Repair'].map((industry, index) => (
+                  <span
+                    key={index}
+                    className="bg-white/5 backdrop-blur-sm px-5 py-2.5 rounded-xl text-blue-100/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300 border border-white/5"
+                  >
+                    {industry}
+                  </span>
+                ))}
               </div>
             </div>
           </AnimatedSection>
         </div>
       </div>
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
-      </div>
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-2xl backdrop-blur-sm border border-white/10 animate-float hidden lg:block"></div>
+      <div className="absolute bottom-32 right-16 w-16 h-16 bg-purple-500/20 rounded-xl backdrop-blur-sm border border-white/10 animate-float hidden lg:block" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/2 right-20 w-12 h-12 bg-pink-500/20 rounded-lg backdrop-blur-sm border border-white/10 animate-float hidden lg:block" style={{ animationDelay: '4s' }}></div>
     </section>
   );
 }

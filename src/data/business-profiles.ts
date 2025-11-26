@@ -19,84 +19,85 @@ export interface BusinessProfile {
   };
 }
 
-// Sample business profiles for template demonstrations
+// Demo business profiles for template demonstrations
+// These showcase how each template style presents business information
 export const businessProfiles: BusinessProfile[] = [
   {
     id: "addy-demo",
-    name: "Premier Plumbing Solutions",
-    industry: "Plumbing",
-    location: "Austin, TX",
+    name: "Your Business Name",
+    industry: "Professional Services",
+    location: "Your City, State",
     services: [
-      "Emergency Plumbing Repairs",
-      "Drain Cleaning & Unclogging",
-      "Water Heater Installation",
-      "Pipe Replacement & Repair",
-      "Bathroom & Kitchen Plumbing",
-      "Sewer Line Services"
+      "Premium Service One",
+      "Professional Service Two",
+      "Expert Consultation",
+      "Quality Assurance",
+      "Client Support",
+      "Custom Solutions"
     ],
-    description: "Family-owned plumbing company serving Austin and surrounding areas for over 15 years. We pride ourselves on honest pricing, quality workmanship, and 24/7 emergency service.",
-    phone: "(512) 555-0123",
-    email: "info@premierplumbingaustin.com",
-    yearEstablished: 2008,
-    employees: "8-12",
-    serviceArea: "Austin Metro Area (30-mile radius)",
-    specialties: ["Emergency Repairs", "Water Heater Specialists", "Drain Cleaning"],
+    description: "This is where your business description goes. Showcase your expertise, values, and what makes you different. The ADDY template presents this content with elegant, minimal styling.",
+    phone: "+1 (830) 928-9196",
+    email: "Siteforgerbusiness@gmail.com",
+    yearEstablished: 2020,
+    employees: "5-10",
+    serviceArea: "Your Service Area",
+    specialties: ["Your Specialty", "Another Strength", "Key Differentiator"],
     testimonial: {
-      text: "Premier Plumbing saved the day when our water heater failed on Christmas Eve. They came out within an hour and had us back up and running. Honest, reliable, and fairly priced.",
-      author: "Sarah Johnson",
-      title: "Homeowner"
+      text: "This is where a customer testimonial would appear. Great reviews build trust and credibility with potential customers visiting your website.",
+      author: "Happy Customer",
+      title: "Satisfied Client"
     }
   },
   {
     id: "marc-demo",
-    name: "Titan Construction Group",
-    industry: "Construction",
-    location: "Denver, CO",
+    name: "Your Company",
+    industry: "Construction & Industrial",
+    location: "Your City, State",
     services: [
-      "Custom Home Building",
-      "Commercial Construction",
-      "Home Renovations & Additions",
-      "Kitchen & Bathroom Remodeling",
-      "Roofing & Siding",
-      "Concrete & Foundation Work"
+      "Major Service Category",
+      "Secondary Service",
+      "Specialized Offering",
+      "Project Management",
+      "Quality Construction",
+      "Expert Installation"
     ],
-    description: "Award-winning construction company specializing in custom homes and commercial projects. We bring big-city expertise with small-town values to every project we build.",
-    phone: "(303) 555-0456",
-    email: "projects@titanconstructionco.com",
-    yearEstablished: 2005,
-    employees: "25-35",
-    serviceArea: "Denver Metro & Front Range",
-    specialties: ["Custom Homes", "Commercial Projects", "Luxury Renovations"],
+    description: "Your powerful business story goes here. The MARC template displays this with bold, impactful typography designed to make a strong first impression.",
+    phone: "+1 (830) 928-9196",
+    email: "Siteforgerbusiness@gmail.com",
+    yearEstablished: 2015,
+    employees: "20-50",
+    serviceArea: "Regional Coverage Area",
+    specialties: ["Large Projects", "Quality Work", "On-Time Delivery"],
     testimonial: {
-      text: "Titan Construction built our dream home exactly as we envisioned it. Their attention to detail and project management was exceptional. We couldn't be happier with the results.",
-      author: "Mike & Jennifer Rodriguez",
-      title: "Homeowners"
+      text: "Share your best customer success story here. The MARC template presents testimonials with dramatic, high-impact styling that commands attention.",
+      author: "Valued Client",
+      title: "Project Partner"
     }
   },
   {
     id: "cade-demo",
-    name: "Elite HVAC Services",
-    industry: "HVAC",
-    location: "Phoenix, AZ",
+    name: "Your Service Company",
+    industry: "Emergency Services",
+    location: "Your City, State",
     services: [
-      "AC Installation & Replacement",
-      "Heating System Repair",
-      "Duct Cleaning & Sealing",
-      "Indoor Air Quality Solutions",
-      "Preventive Maintenance Plans",
-      "Emergency HVAC Repairs"
+      "Emergency Response",
+      "Rapid Repair Service",
+      "24/7 Availability",
+      "Same-Day Solutions",
+      "Preventive Maintenance",
+      "Expert Diagnostics"
     ],
-    description: "Phoenix's most trusted HVAC contractor with over 20 years of experience. We specialize in energy-efficient solutions that keep you comfortable year-round while saving money on utility bills.",
-    phone: "(602) 555-0789",
-    email: "service@elitehvacphx.com",
-    yearEstablished: 2003,
-    employees: "15-20",
-    serviceArea: "Greater Phoenix Area",
-    specialties: ["Energy Efficiency", "Emergency Service", "Maintenance Plans"],
+    description: "Your urgent, action-oriented message goes here. The CADE template is designed to create urgency and drive immediate customer action.",
+    phone: "+1 (830) 928-9196",
+    email: "Siteforgerbusiness@gmail.com",
+    yearEstablished: 2010,
+    employees: "10-25",
+    serviceArea: "Metro Area Coverage",
+    specialties: ["Fast Response", "24/7 Service", "Guaranteed Results"],
     testimonial: {
-      text: "Elite HVAC installed our new AC system and the difference is incredible. Our energy bills dropped by 40% and the house stays perfectly comfortable. Highly recommend!",
-      author: "David Chen",
-      title: "Business Owner"
+      text: "Your most compelling customer story goes here. CADE showcases testimonials prominently to build trust and encourage conversions.",
+      author: "Grateful Customer",
+      title: "Emergency Client"
     }
   }
 ];

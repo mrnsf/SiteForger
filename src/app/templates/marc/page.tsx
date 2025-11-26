@@ -4,11 +4,11 @@ import { getTemplateById } from "@/data/templates";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, Mail, Users, Award, TrendingUp, CheckCircle, Star, ArrowRight, Clock } from "lucide-react";
+import { Phone, Users, Award, Clock, CheckCircle, Star, ArrowRight, Hammer } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "MARC Template - Bold & Full-Width Design | Site Forger",
-  description: "MARC: Bold and impactful website template with oversized typography and full-width imagery, perfect for construction companies that want to make a strong visual statement.",
+  title: "MARC Template - Bold & Powerful Design | Site Forger",
+  description: "MARC: A commanding dark design with oversized typography and full-width imagery. Makes a strong, unforgettable impression.",
 };
 
 export default function MarcTemplatePage() {
@@ -22,48 +22,49 @@ export default function MarcTemplatePage() {
   const stats = [
     { number: "Licensed", label: "& Insured", icon: Award },
     { number: "Quality", label: "Guaranteed", icon: Star },
-    { number: "24/7", label: "Emergency Service", icon: Clock },
-    { number: "Expert", label: "Craftsmanship", icon: Users },
+    { number: "24/7", label: "Support", icon: Clock },
+    { number: "Expert", label: "Team", icon: Users },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-950 text-white">
       {/* Hero Section - Full Width with Oversized Typography */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=construction%20site%20with%20modern%20building%20under%20construction%20dramatic%20lighting%20industrial%20atmosphere&image_size=landscape_16_9"
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
             alt="Construction site"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gray-900/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950/70"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-4xl">
-            <Badge variant="outline" className="bg-orange-600/20 text-orange-400 border-orange-400 mb-8 text-lg px-4 py-2">
-              {businessProfile.industry} Leaders Since {businessProfile.yearEstablished}
+            <Badge variant="outline" className="bg-orange-500/20 text-orange-400 border-orange-500/50 mb-8 text-base px-5 py-2 font-bold uppercase tracking-wider">
+              Bold & Powerful Design Demo
             </Badge>
-            
+
             {/* Oversized Typography */}
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none mb-8 tracking-tight">
-              <span className="block text-white">TITAN</span>
-              <span className="block text-orange-500">CONSTRUCTION</span>
+              <span className="block text-white">MAKE AN</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">IMPACT</span>
             </h1>
-            
-            <p className="text-2xl md:text-3xl text-gray-300 mb-12 max-w-3xl leading-relaxed font-light">
-              {businessProfile.description}
+
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl leading-relaxed font-light">
+              The MARC template commands attention with bold typography, dark aesthetics, and powerful imagery.
+              Perfect for businesses that want to make a statement.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-xl px-12 py-6 rounded-none font-bold">
+              <Button size="xl" className="bg-orange-500 hover:bg-orange-600 text-white font-bold uppercase tracking-wider rounded-none shadow-glow-orange">
                 <Phone className="w-6 h-6 mr-3" />
-                GET QUOTE NOW
+                {businessProfile.phone}
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900 text-xl px-12 py-6 rounded-none font-bold">
-                VIEW PROJECTS
+              <Button variant="outline" size="xl" className="border-2 border-white text-white hover:bg-white hover:text-gray-950 font-bold uppercase tracking-wider rounded-none">
+                View Projects
                 <ArrowRight className="w-6 h-6 ml-3" />
               </Button>
             </div>
@@ -72,8 +73,8 @@ export default function MarcTemplatePage() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
           </div>
         </div>
       </section>
@@ -90,7 +91,7 @@ export default function MarcTemplatePage() {
                 <div className="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-orange-500 transition-colors duration-300">
                   {stat.number}
                 </div>
-                <div className="text-xl text-gray-400 font-medium uppercase tracking-wider">
+                <div className="text-lg text-gray-400 font-bold uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>
@@ -99,24 +100,24 @@ export default function MarcTemplatePage() {
         </div>
       </section>
 
-      {/* Full-Width Image Band 1 */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <img 
-          src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20luxury%20home%20construction%20exterior%20architectural%20details%20high%20quality&image_size=landscape_16_9"
-          alt="Luxury home construction"
+      {/* Full-Width Image Band */}
+      <section className="relative h-[500px] md:h-[600px] overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80"
+          alt="Modern building"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-950/50 to-transparent flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
-                CUSTOM HOMES
+              <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight uppercase">
+                Built to Last
               </h2>
-              <p className="text-xl text-gray-200 mb-6">
-                Building dream homes with uncompromising quality and attention to detail.
+              <p className="text-xl text-gray-200 mb-8 font-light">
+                Quality craftsmanship that stands the test of time.
               </p>
-              <Button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-none font-bold">
-                EXPLORE HOMES
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-none font-bold uppercase tracking-wider">
+                Learn More
               </Button>
             </div>
           </div>
@@ -124,32 +125,30 @@ export default function MarcTemplatePage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-24 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              OUR SERVICES
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight uppercase">
+              Our Services
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
-              Comprehensive construction solutions for residential and commercial projects
-            </p>
+            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {businessProfile.services.map((service, index) => (
-              <Card key={index} className="bg-gray-900 border-gray-700 hover:border-orange-500 transition-colors duration-300 rounded-none overflow-hidden group">
+              <Card key={index} className="bg-gray-950 border-2 border-gray-800 hover:border-orange-500 transition-all duration-300 rounded-none overflow-hidden group">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-orange-600 flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors duration-300">
-                    <div className="w-8 h-8 bg-white" />
+                  <div className="w-16 h-16 bg-orange-500 flex items-center justify-center mb-6 group-hover:bg-orange-400 transition-colors duration-300">
+                    <Hammer className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-500 transition-colors duration-300">
+                  <h3 className="text-2xl font-black text-white mb-4 uppercase group-hover:text-orange-500 transition-colors duration-300">
                     {service}
                   </h3>
-                  <p className="text-gray-400 mb-6 text-lg">
-                    Professional {service.toLowerCase()} services with industry-leading expertise and quality standards.
+                  <p className="text-gray-400 mb-6 text-lg font-light">
+                    Professional {service.toLowerCase()} with industry-leading expertise and quality standards.
                   </p>
-                  <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-none font-bold w-full">
-                    <a href="mailto:hello@siteforger.com">GET QUOTE</a>
+                  <Button variant="outline" className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-none font-bold uppercase tracking-wide w-full">
+                    Get Quote
                   </Button>
                 </CardContent>
               </Card>
@@ -158,54 +157,28 @@ export default function MarcTemplatePage() {
         </div>
       </section>
 
-      {/* Full-Width Image Band 2 */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <img 
-          src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=commercial%20building%20construction%20modern%20office%20complex%20architectural%20photography&image_size=landscape_16_9"
-          alt="Commercial construction"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-l from-gray-900/80 to-transparent flex items-center justify-end">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl text-right">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
-                COMMERCIAL
-              </h2>
-              <p className="text-xl text-gray-200 mb-6">
-                Large-scale commercial projects delivered on time and within budget.
-              </p>
-              <Button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-none font-bold">
-                VIEW PORTFOLIO
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Process Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              OUR PROCESS
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight uppercase">
+              Our Process
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
-              From concept to completion, we deliver exceptional results through proven methodology
-            </p>
+            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { step: "01", title: "CONSULTATION", desc: "Initial meeting to understand your vision and requirements" },
-              { step: "02", title: "DESIGN", desc: "Detailed planning and architectural design development" },
-              { step: "03", title: "BUILD", desc: "Expert construction with quality materials and craftsmanship" },
-              { step: "04", title: "DELIVER", desc: "Final walkthrough and project handover to your satisfaction" }
+              { step: "01", title: "CONSULT", desc: "Initial meeting to understand your vision" },
+              { step: "02", title: "DESIGN", desc: "Detailed planning and development" },
+              { step: "03", title: "BUILD", desc: "Expert execution with quality materials" },
+              { step: "04", title: "DELIVER", desc: "Final walkthrough and handover" }
             ].map((item, index) => (
-              <Card key={index} className="bg-black border-gray-700 hover:border-orange-500 transition-colors duration-300 rounded-none">
+              <Card key={index} className="bg-gray-950 border-2 border-gray-800 hover:border-orange-500 transition-all duration-300 rounded-none">
                 <CardContent className="p-8 text-center">
-                  <div className="text-6xl font-black text-orange-500 mb-4">{item.step}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-gray-400 text-lg">{item.desc}</p>
+                  <div className="text-7xl font-black text-orange-500 mb-4">{item.step}</div>
+                  <h3 className="text-2xl font-black text-white mb-4 uppercase">{item.title}</h3>
+                  <p className="text-gray-400 text-lg font-light">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -213,25 +186,22 @@ export default function MarcTemplatePage() {
         </div>
       </section>
 
-      {/* Masonry Gallery */}
-      <section className="py-20 bg-black">
+      {/* Gallery - Masonry Style */}
+      <section className="py-24 bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              PROJECT SHOWCASE
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight uppercase">
+              Our Work
             </h2>
-            <p className="text-2xl text-gray-400">
-              Showcasing our commitment to excellence
-            </p>
+            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
           </div>
 
-          {/* Masonry Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Large Image */}
             <div className="md:col-span-2 lg:col-span-2 lg:row-span-2">
               <div className="aspect-[16/9] lg:aspect-square overflow-hidden group cursor-pointer">
-                <img 
-                  src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20modern%20home%20exterior%20architectural%20photography%20high%20end%20construction&image_size=landscape_16_9"
+                <img
+                  src="https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=1200&q=80"
                   alt="Featured project"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -240,34 +210,34 @@ export default function MarcTemplatePage() {
 
             {/* Square Images */}
             <div className="aspect-square overflow-hidden group cursor-pointer">
-              <img 
-                src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20kitchen%20renovation%20high%20end%20finishes%20construction%20detail&image_size=square"
-                alt="Kitchen renovation"
+              <img
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80"
+                alt="Project 2"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
 
             <div className="aspect-square overflow-hidden group cursor-pointer">
-              <img 
-                src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=bathroom%20renovation%20luxury%20tiles%20modern%20fixtures%20construction&image_size=square"
-                alt="Bathroom renovation"
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80"
+                alt="Project 3"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
 
             {/* Wide Images */}
             <div className="md:col-span-2 aspect-[16/9] overflow-hidden group cursor-pointer">
-              <img 
-                src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=commercial%20office%20building%20construction%20modern%20architecture%20glass%20facade&image_size=landscape_16_9"
-                alt="Commercial project"
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80"
+                alt="Project 4"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
 
             <div className="aspect-square overflow-hidden group cursor-pointer">
-              <img 
-                src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=home%20addition%20construction%20architectural%20details%20craftsmanship&image_size=square"
-                alt="Home addition"
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80"
+                alt="Project 5"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
@@ -275,57 +245,57 @@ export default function MarcTemplatePage() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-800">
+      {/* Why Choose Us */}
+      <section className="py-24 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              WHY CHOOSE TITAN
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight uppercase">
+              Why Choose Us
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
-              Experience the difference of working with true construction professionals
-            </p>
+            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "LICENSED & BONDED", desc: "Fully licensed, bonded, and insured for your protection", icon: "🛡️" },
-              { title: "QUALITY MATERIALS", desc: "We use only the finest materials and proven construction methods", icon: "🏗️" },
-              { title: "ON-TIME DELIVERY", desc: "Projects completed on schedule with transparent communication", icon: "⏰" },
-              { title: "EXPERT TEAM", desc: "Skilled craftsmen with decades of combined experience", icon: "👷" },
-              { title: "CUSTOM SOLUTIONS", desc: "Tailored approaches for every unique project requirement", icon: "🎯" },
-              { title: "WARRANTY BACKED", desc: "Comprehensive warranties on all workmanship and materials", icon: "✅" }
+              { title: "Licensed & Bonded", desc: "Fully licensed, bonded, and insured for your protection" },
+              { title: "Quality Materials", desc: "We use only the finest materials and proven methods" },
+              { title: "On-Time Delivery", desc: "Projects completed on schedule with transparent communication" },
+              { title: "Expert Team", desc: "Skilled professionals with decades of combined experience" },
+              { title: "Custom Solutions", desc: "Tailored approaches for every unique project requirement" },
+              { title: "Warranty Backed", desc: "Comprehensive warranties on all workmanship and materials" }
             ].map((item, index) => (
-              <Card key={index} className="bg-gray-900 border-gray-700 hover:border-orange-500 transition-colors duration-300 rounded-none">
-                <CardContent className="p-8 text-center">
-                  <div className="text-4xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="text-center p-8 border-2 border-gray-800 hover:border-orange-500 transition-colors duration-300">
+                <CheckCircle className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+                <h3 className="text-xl font-black text-white mb-4 uppercase">{item.title}</h3>
+                <p className="text-gray-400 font-light">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-24 bg-black">
         <div className="container mx-auto px-4">
-          <Card className="max-w-6xl mx-auto bg-black border-gray-700 rounded-none overflow-hidden">
-            <CardContent className="p-16 text-center">
+          <Card className="max-w-5xl mx-auto bg-gray-950 border-2 border-gray-800 rounded-none overflow-hidden">
+            <CardContent className="p-12 md:p-16 text-center">
               <div className="flex justify-center mb-8">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-8 h-8 fill-orange-500 text-orange-500" />
                 ))}
               </div>
-              <blockquote className="text-3xl md:text-4xl text-white font-light mb-12 leading-relaxed italic">
+              <blockquote className="text-2xl md:text-4xl text-white font-light mb-12 leading-relaxed italic">
                 "{businessProfile.testimonial?.text}"
               </blockquote>
               <div className="flex items-center justify-center gap-6">
-                <div className="w-16 h-16 bg-gray-700 rounded-full"></div>
+                <div className="w-16 h-16 bg-orange-500 rounded-none flex items-center justify-center">
+                  <span className="text-white font-black text-2xl">
+                    {businessProfile.testimonial?.author.charAt(0)}
+                  </span>
+                </div>
                 <div className="text-left">
-                  <p className="text-2xl font-bold text-white">{businessProfile.testimonial?.author}</p>
-                  <p className="text-xl text-gray-400">{businessProfile.testimonial?.title}</p>
+                  <p className="text-2xl font-black text-white uppercase">{businessProfile.testimonial?.author}</p>
+                  <p className="text-lg text-gray-400">{businessProfile.testimonial?.title}</p>
                 </div>
               </div>
             </CardContent>
@@ -334,23 +304,33 @@ export default function MarcTemplatePage() {
       </section>
 
       {/* CTA Band - Bold */}
-      <section className="py-20 bg-orange-600">
+      <section className="py-24 bg-gradient-to-r from-orange-600 to-amber-500">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight">
-            READY TO BUILD?
+          <h2 className="text-5xl md:text-8xl font-black text-white mb-8 leading-tight uppercase">
+            Ready to Build?
           </h2>
-          <p className="text-2xl text-orange-100 mb-12 max-w-3xl mx-auto">
-            Let's discuss your next construction project and bring your vision to life
+          <p className="text-xl md:text-2xl text-orange-100 mb-12 max-w-3xl mx-auto font-light">
+            Let's discuss your project and bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-orange-600 hover:bg-gray-100 text-2xl px-12 py-6 rounded-none font-black">
+            <Button size="xl" variant="secondary" className="bg-white text-orange-600 hover:bg-gray-100 font-black uppercase tracking-wider rounded-none">
               <Phone className="w-6 h-6 mr-3" />
               {businessProfile.phone}
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-600 text-2xl px-12 py-6 rounded-none font-black">
-              GET FREE ESTIMATE
+            <Button size="xl" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-black uppercase tracking-wider rounded-none">
+              Get Free Estimate
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Template Info Banner */}
+      <section className="py-6 bg-gray-950 border-t border-gray-800">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-400 text-sm">
+            This is a demo of the <strong className="text-orange-500">MARC</strong> template - Bold & Powerful design style.{" "}
+            <a href="/contact" className="text-orange-500 underline hover:no-underline">Contact us</a> to customize it for your business.
+          </p>
         </div>
       </section>
     </div>

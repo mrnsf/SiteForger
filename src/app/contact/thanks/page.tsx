@@ -66,18 +66,18 @@ export default function ContactThanksPage() {
             </h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+1-555-123-4567"
+                href="tel:+18309289196"
                 className="flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>(555) 123-4567</span>
+                <span>+1 (830) 928-9196</span>
               </a>
               <a
-                href="mailto:hello@siteforger.com"
+                href="mailto:Siteforgerbusiness@gmail.com"
                 className="flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>hello@siteforger.com</span>
+                <span>Siteforgerbusiness@gmail.com</span>
               </a>
 
             </div>

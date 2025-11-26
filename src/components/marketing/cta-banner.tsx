@@ -108,22 +108,22 @@ export function CTABanner() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
-                <Link href="tel:+1234567890" className="flex items-center gap-3">
+                <Link href="tel:+18309289196" className="flex items-center gap-3">
                   <Phone className="w-5 h-5" />
-                  Call Now: (123) 456-7890
+                  Call Now: +1 (830) 928-9196
                 </Link>
               </Button>
               
-              <Button 
-                asChild 
+              <Button
+                asChild
                 variant="outline"
                 className="border-2 border-white/40 text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm bg-white/10 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
-                <Link href="mailto:hello@siteforger.com" className="flex items-center gap-3">
+                <Link href="mailto:Siteforgerbusiness@gmail.com" className="flex items-center gap-3">
                   <Mail className="w-5 h-5" />
                   Email Us
                 </Link>

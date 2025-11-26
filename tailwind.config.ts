@@ -87,6 +87,17 @@ const config: Config = {
         "elevation-8": "0 4px 16px rgba(15, 23, 42, 0.12)",
         "elevation-16": "0 8px 32px rgba(15, 23, 42, 0.16)",
         "elevation-24": "0 12px 48px rgba(15, 23, 42, 0.20)",
+        // Modern glow shadows
+        "glow-sm": "0 0 15px -3px rgba(37, 99, 235, 0.3)",
+        "glow-md": "0 0 30px -5px rgba(37, 99, 235, 0.4)",
+        "glow-lg": "0 0 50px -10px rgba(37, 99, 235, 0.5)",
+        "glow-purple": "0 0 40px -10px rgba(124, 58, 237, 0.4)",
+        "glow-orange": "0 0 40px -10px rgba(249, 115, 22, 0.4)",
+        // Soft modern shadows
+        "soft-sm": "0 2px 10px -3px rgba(0, 0, 0, 0.1)",
+        "soft-md": "0 4px 20px -5px rgba(0, 0, 0, 0.1)",
+        "soft-lg": "0 10px 40px -10px rgba(0, 0, 0, 0.15)",
+        "soft-xl": "0 20px 60px -15px rgba(0, 0, 0, 0.2)",
       },
       spacing: {
         "18": "4.5rem",
@@ -98,6 +109,10 @@ const config: Config = {
         "fade-in": "fadeIn 0.3s ease-out",
         "slide-up": "slideUp 0.3s ease-out",
         "scale-in": "scaleIn 0.2s ease-out",
+        "shimmer": "shimmer 2s linear infinite",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "float": "float 6s ease-in-out infinite",
+        "glow-pulse": "glowPulse 2s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -111,6 +126,18 @@ const config: Config = {
         scaleIn: {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        glowPulse: {
+          "0%, 100%": { boxShadow: "0 0 20px -5px rgba(37, 99, 235, 0.4)" },
+          "50%": { boxShadow: "0 0 35px -5px rgba(37, 99, 235, 0.6)" },
         },
       },
       backdropBlur: {

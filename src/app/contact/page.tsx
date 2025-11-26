@@ -87,7 +87,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center justify-center gap-3 text-gray-700">
                   <Phone className="w-5 h-5 text-blue-600" />
-                  <span>Call us at (555) 123-4567 for immediate assistance</span>
+                  <span>Call us at (555) 000-0000 for immediate assistance</span>
                 </div>
               </div>
               
@@ -324,7 +324,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900">Call Us</h3>
-                          <p className="text-lg text-blue-600 font-semibold">(555) 123-4567</p>
+                          <p className="text-lg text-blue-600 font-semibold">+1 (830) 928-9196</p>
                           <p className="text-gray-600">Mon-Fri 9AM-6PM EST</p>
                         </div>
                       </div>
@@ -341,7 +341,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900">Email Us</h3>
-                          <p className="text-lg text-green-600 font-semibold">hello@siteforger.com</p>
+                          <p className="text-lg text-green-600 font-semibold">Siteforgerbusiness@gmail.com</p>
                           <p className="text-gray-600">We respond within 24 hours</p>
                         </div>
                       </div>

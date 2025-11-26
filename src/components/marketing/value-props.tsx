@@ -1,4 +1,4 @@
-import { CheckCircle, Clock, Smartphone, TrendingUp, Shield, Headphones, Zap, Target } from 'lucide-react';
+import { CheckCircle, Clock, Smartphone, TrendingUp, Shield, Headphones, Target } from 'lucide-react';
 
 const valueProps = [
   {
@@ -117,29 +117,27 @@ export function ValueProps() {
           ))}
         </div>
 
-        {/* Bottom Stats Section */}
+        {/* Bottom CTA Section */}
         <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center shadow-2xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group">
-              <div className="flex items-center justify-center mb-4">
-                <Zap className="w-12 h-12 text-yellow-300 group-hover:animate-pulse" />
-              </div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-blue-100 font-medium">Websites Delivered</div>
-            </div>
-            <div className="group">
-              <div className="flex items-center justify-center mb-4">
-                <TrendingUp className="w-12 h-12 text-green-300 group-hover:animate-pulse" />
-              </div>
-              <div className="text-4xl font-bold mb-2">98%</div>
-              <div className="text-blue-100 font-medium">Customer Satisfaction</div>
-            </div>
-            <div className="group">
-              <div className="flex items-center justify-center mb-4">
-                <Shield className="w-12 h-12 text-blue-300 group-hover:animate-pulse" />
-              </div>
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-blue-100 font-medium">Support Available</div>
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h3>
+            <p className="text-xl text-blue-100 mb-8">
+              Let us build your professional website that drives real results for your business.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-colors duration-300"
+              >
+                Get Your Free Quote
+              </a>
+              <a
+                href="tel:+18309289196"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors duration-300 border-2 border-white/20"
+              >
+                <Headphones className="w-5 h-5 mr-2" />
+                Call +1 (830) 928-9196
+              </a>
             </div>
           </div>
         </div>

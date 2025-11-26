@@ -298,9 +298,9 @@ export default function ServicesPage() {
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
               <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-xl px-8 py-6 font-bold">
-                <a href="tel:+1-555-123-4567">
+                <a href="tel:+18309289196">
                   <Phone className="w-6 h-6 mr-3" />
-                  Call (555) 123-4567
+                  Call +1 (830) 928-9196
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 text-xl px-8 py-6 font-bold">
