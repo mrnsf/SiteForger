@@ -31,7 +31,7 @@ export const templates: Template[] = [
       "Light, airy color palette with blue accents"
     ],
     motif: "addy",
-    thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     demoUrl: "/templates/addy",
     industry: "Professional Services",
     bestFor: ["Consulting Firms", "Premium Brands", "Professional Services"],
@@ -54,7 +54,7 @@ export const templates: Template[] = [
       "Dark theme with orange accent highlights"
     ],
     motif: "marc",
-    thumbnail: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80",
     demoUrl: "/templates/marc",
     industry: "Construction & Industrial",
     bestFor: ["Construction Companies", "Manufacturing", "Industrial Services"],
@@ -77,7 +77,7 @@ export const templates: Template[] = [
       "Multi-color gradients with pulsing animations"
     ],
     motif: "cade",
-    thumbnail: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     demoUrl: "/templates/cade",
     industry: "Emergency & Urgent Services",
     bestFor: ["Emergency Services", "Time-Sensitive Businesses", "High-Volume Leads"],

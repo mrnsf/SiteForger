@@ -41,7 +41,7 @@ export function Header() {
         <div className="flex lg:hidden">
           <motion.button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-text hover:text-primary transition-colors duration-200"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
             onClick={() => setMobileMenuOpen(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -119,7 +119,7 @@ export function Header() {
                 </Link>
                 <motion.button
                   type="button"
-                  className="-m-2.5 rounded-md p-2.5 text-text hover:text-primary transition-colors duration-200"
+                  className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -129,7 +129,7 @@ export function Header() {
                 </motion.button>
               </div>
               <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-border">
+                <div className="-my-6 divide-y divide-gray-200 dark:divide-gray-700">
                   <div className="space-y-2 py-6">
                     {navigation.map((item, index) => (
                       <motion.div
@@ -140,7 +140,7 @@ export function Header() {
                       >
                         <Link
                           href={item.href}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-body-md font-medium leading-7 text-text hover:bg-muted hover:text-primary transition-all duration-200"
+                          className="-mx-3 block rounded-xl px-4 py-3 text-base font-medium leading-7 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
