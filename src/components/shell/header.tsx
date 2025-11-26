@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -12,6 +12,7 @@ const navigation = [
   { name: "Templates", href: "/templates" },
   { name: "About", href: "/about" },
   { name: "FAQ", href: "/faq" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -78,14 +79,21 @@ export function Header() {
 
         {/* Desktop CTA & Theme Toggle */}
         <motion.div
-          className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4"
+          className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-3"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
+          <a
+            href="tel:+18309289196"
+            className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            <Phone className="w-4 h-4" />
+            <span className="hidden xl:inline">+1 (830) 928-9196</span>
+          </a>
           <ThemeToggle />
-          <Button asChild variant="glow" className="transform hover:scale-105 transition-all duration-200">
-            <Link href="/contact">Get Started</Link>
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+            <Link href="/contact">Get Quote</Link>
           </Button>
         </motion.div>
       </nav>
@@ -154,13 +162,25 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.4 }}
                   >
-                    <div className="flex items-center justify-between px-3 py-2">
-                      <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Theme</span>
+                    {/* Phone number */}
+                    <a
+                      href="tel:+18309289196"
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 font-medium"
+                    >
+                      <Phone className="w-5 h-5" />
+                      <span>+1 (830) 928-9196</span>
+                    </a>
+
+                    {/* Theme toggle */}
+                    <div className="flex items-center justify-between px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/50">
+                      <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Dark Mode</span>
                       <ThemeToggle />
                     </div>
-                    <Button asChild className="w-full transform hover:scale-105 transition-all duration-200">
+
+                    {/* CTA Button */}
+                    <Button asChild className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-6 text-lg font-semibold">
                       <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                        Get Started
+                        Get Free Quote
                       </Link>
                     </Button>
                   </motion.div>

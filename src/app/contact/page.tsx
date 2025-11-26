@@ -35,6 +35,7 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -46,19 +47,59 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Check honeypot field
     if (formData.honeypot) {
       return; // Likely spam
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+    setSubmitError("");
+
+    try {
+      // Send form data to Web3Forms (free email service)
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Replace with actual key from web3forms.com
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+          subject: `New Contact Form Submission from ${formData.name}`,
+          from_name: "Site Forger Contact Form",
+          to: "Siteforgerbusiness@gmail.com",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        // If Web3Forms fails, fallback to mailto
+        const mailtoLink = `mailto:Siteforgerbusiness@gmail.com?subject=New Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
+        )}`;
+        window.location.href = mailtoLink;
+        setIsSubmitted(true);
+      }
+    } catch {
+      // Fallback to mailto if fetch fails
+      const mailtoLink = `mailto:Siteforgerbusiness@gmail.com?subject=New Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoLink;
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -87,7 +128,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center justify-center gap-3 text-gray-700">
                   <Phone className="w-5 h-5 text-blue-600" />
-                  <span>Call us at (555) 000-0000 for immediate assistance</span>
+                  <span>Call us at +1 (830) 928-9196 for immediate assistance</span>
                 </div>
               </div>
               
