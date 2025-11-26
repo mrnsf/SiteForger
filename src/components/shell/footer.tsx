@@ -113,18 +113,18 @@ export function Footer() {
                 &copy; {new Date().getFullYear()} Site Forger. All rights reserved.
               </p>
               <div className="mt-4 md:mt-0 flex space-x-6">
-                <Link
-                  href="/privacy"
+                <a
+                  href="mailto:Siteforgerbusiness@gmail.com"
                   className="text-sm text-gray-500 hover:text-gray-300 transition-all duration-300"
                 >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/terms"
+                  Contact Us
+                </a>
+                <a
+                  href="tel:+18309289196"
                   className="text-sm text-gray-500 hover:text-gray-300 transition-all duration-300"
                 >
-                  Terms of Service
-                </Link>
+                  +1 (830) 928-9196
+                </a>
               </div>
             </div>
           </div>

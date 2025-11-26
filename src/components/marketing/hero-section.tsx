@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/animated-section';
+import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react';
 
 export function HeroSection() {
@@ -33,9 +34,9 @@ export function HeroSection() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               Websites That Work
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+              <TextShimmer className="text-5xl md:text-6xl lg:text-7xl font-bold" duration={3}>
                 As Hard As You Do
-              </span>
+              </TextShimmer>
             </h1>
           </AnimatedSection>
 

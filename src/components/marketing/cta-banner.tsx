@@ -37,8 +37,8 @@ export function CTABanner() {
             </h2>
             
             <p className="text-xl md:text-2xl mb-12 text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Join thousands of successful contractors and service providers who've grown their business 
-              with Site Forger's professional website solutions. Get started today and see results in days, not months.
+              Get a professional website that works as hard as you do.
+              Site Forger delivers results in days, not months — so you can focus on what you do best.
             </p>
 
             {/* Trust Indicators */}

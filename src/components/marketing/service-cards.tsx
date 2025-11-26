@@ -122,7 +122,7 @@ export function ServiceCards() {
               Ready to Transform Your Business?
             </h3>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join hundreds of successful contractors who've grown their business with our proven digital solutions.
+              Get a professional website built specifically for your industry — designed to convert visitors into customers.
             </p>
             <Button 
               asChild

@@ -110,19 +110,19 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="bg-blue-600 text-white px-4 py-2 text-lg font-semibold mb-6">
               Professional Services
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Digital Marketing Services That Drive Real Results
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed">
-              Specialized digital marketing solutions designed specifically for contractors and service providers. 
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Specialized digital marketing solutions designed specifically for contractors and service providers.
               Get more leads, increase visibility, and build your business online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -143,7 +143,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="space-y-24">
             {services.map((service, index) => (
@@ -160,46 +160,46 @@ export default function ServicesPage() {
                       </Badge>
                     </div>
                     
-                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                       {service.title}
                     </h2>
-                    
-                    <p className="text-xl text-blue-600 font-semibold">
+
+                    <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold">
                       {service.tagline}
                     </p>
-                    
-                    <p className="text-lg text-gray-600 leading-relaxed">
+
+                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                       {service.description}
                     </p>
                   </div>
 
                   {/* Features List */}
                   <div className="space-y-3">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">What's Included:</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">What's Included:</h3>
                     {service.features.slice(0, 4).map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                        <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                       </div>
                     ))}
                     {service.features.length > 4 && (
-                      <p className="text-blue-600 font-medium">+ {service.features.length - 4} more features included</p>
+                      <p className="text-blue-600 dark:text-blue-400 font-medium">+ {service.features.length - 4} more features included</p>
                     )}
                   </div>
 
                   {/* Pricing */}
-                  <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+                  <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 border-blue-200 dark:border-gray-600">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-4">
                         <div>
-                          <p className="text-sm text-gray-600">Starting at</p>
-                          <p className="text-3xl font-bold text-gray-900">{service.pricing.starting}</p>
-                          <p className="text-sm text-gray-600">{service.pricing.setup}</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Starting at</p>
+                          <p className="text-3xl font-bold text-gray-900 dark:text-white">{service.pricing.starting}</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{service.pricing.setup}</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-sm text-gray-600">Then</p>
-                          <p className="text-2xl font-bold text-blue-600">{service.pricing.monthly}</p>
-                          <p className="text-sm text-gray-600">ongoing</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Then</p>
+                          <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{service.pricing.monthly}</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">ongoing</p>
                         </div>
                       </div>
                       <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold">
@@ -232,14 +232,14 @@ export default function ServicesPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Why Choose Site Forger?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We specialize in digital marketing for contractors and service providers. 
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              We specialize in digital marketing for contractors and service providers.
               Our proven strategies help blue-collar businesses dominate their local markets.
             </p>
           </div>
@@ -253,8 +253,8 @@ export default function ServicesPage() {
               },
               {
                 icon: TrendingUp,
-                title: "Proven Results",
-                description: "Our strategies have helped hundreds of contractors grow their business"
+                title: "Results-Driven",
+                description: "Websites and strategies designed to generate leads and grow your business"
               },
               {
                 icon: Users,
@@ -267,15 +267,15 @@ export default function ServicesPage() {
                 description: "Month-to-month service with no long-term commitments required"
               }
             ].map((benefit, index) => (
-              <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+              <Card key={index} className="bg-white dark:bg-gray-700 border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <benefit.icon className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <benefit.icon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {benefit.description}
                   </p>
                 </CardContent>
