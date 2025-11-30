@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
+import { useRef } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -21,6 +22,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [pathname, setPathname] = useState("");
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
   // Handle scroll effect and pathname
   useEffect(() => {
@@ -35,6 +37,19 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open and focus close button
+  useEffect(() => {
+    const body = document.body;
+    if (mobileMenuOpen) {
+      const prev = body.style.overflow;
+      body.style.overflow = "hidden";
+      closeBtnRef.current?.focus();
+      return () => {
+        body.style.overflow = prev;
+      };
+    }
+  }, [mobileMenuOpen]);
+
   // Check if link is active
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -46,8 +61,8 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm"
-          : "bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-800/50"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+          : "bg-background border-b border-transparent"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -80,8 +95,10 @@ export function Header() {
           <ThemeToggle />
           <motion.button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-accent transition-colors"
             onClick={() => setMobileMenuOpen(true)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu-panel"
             whileTap={{ scale: 0.95 }}
           >
             <span className="sr-only">Open main menu</span>
@@ -106,14 +123,14 @@ export function Header() {
                   className={cn(
                     "relative text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200",
                     active
-                      ? "text-blue-600 dark:text-blue-400"
-                      : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
                   )}
                 >
                   {item.name}
                   {active && (
                     <motion.div
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"
                       layoutId="activeIndicator"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
@@ -133,7 +150,7 @@ export function Header() {
         >
           <a
             href="tel:+18309289196"
-            className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-accent"
           >
             <Phone className="w-4 h-4" />
             <span className="hidden xl:inline">+1 (830) 928-9196</span>
@@ -141,7 +158,7 @@ export function Header() {
           <ThemeToggle />
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-200">
-              <Link href="/contact">Get Quote</Link>
+              <Link href="/contact">Get a free quote</Link>
             </Button>
           </motion.div>
         </motion.div>
@@ -162,14 +179,18 @@ export function Header() {
 
             {/* Slide-out panel */}
             <motion.div
-              className="lg:hidden fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white dark:bg-gray-900 shadow-2xl"
+              id="mobile-menu-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Main Menu"
+              className="lg:hidden fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-background shadow-2xl"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200 dark:border-gray-800">
+              <div className="flex items-center justify-between px-4 py-4 border-b border-border">
                 <Link
                   href="/"
                   className="flex items-center gap-2"
@@ -184,8 +205,9 @@ export function Header() {
                 </Link>
                 <motion.button
                   type="button"
-                  className="p-2 rounded-lg text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
+                  ref={closeBtnRef}
                   whileTap={{ scale: 0.95 }}
                 >
                   <X className="h-5 w-5" />
@@ -209,15 +231,15 @@ export function Header() {
                         className={cn(
                           "flex items-center justify-between px-4 py-3 rounded-lg mb-1 transition-colors",
                           active
-                            ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
-                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            ? "bg-primary/10 text-primary"
+                            : "text-foreground hover:bg-accent"
                         )}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <span className="font-medium">{item.name}</span>
                         <ChevronRight className={cn(
                           "w-4 h-4 transition-transform",
-                          active ? "text-blue-600 dark:text-blue-400" : "opacity-50"
+                          active ? "text-primary" : "opacity-50"
                         )} />
                       </Link>
                     </motion.div>
@@ -226,11 +248,11 @@ export function Header() {
               </nav>
 
               {/* Footer actions */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+              <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border bg-muted">
                 {/* Phone */}
                 <motion.a
                   href="tel:+18309289196"
-                  className="flex items-center gap-3 px-4 py-3 mb-3 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium shadow-sm"
+                  className="flex items-center gap-3 px-4 py-3 mb-3 rounded-lg bg-background text-foreground font-medium shadow-sm"
                   whileTap={{ scale: 0.98 }}
                 >
                   <Phone className="w-5 h-5 text-green-600" />
@@ -244,7 +266,7 @@ export function Header() {
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 font-semibold"
                   >
                     <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                      Get Free Quote
+                      Get a free quote
                     </Link>
                   </Button>
                 </motion.div>

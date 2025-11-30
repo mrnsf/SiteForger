@@ -65,7 +65,7 @@ export default function ContactPage() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "5903efc0-33f2-4b7c-ae3c-cbdf7245cd26",
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "",
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -104,29 +104,29 @@ export default function ContactPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-background dark:bg-gray-950 flex items-center justify-center">
         <div className="container mx-auto px-4">
-          <Card className="max-w-2xl mx-auto bg-white border-0 shadow-2xl">
+          <Card className="max-w-2xl mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-soft-xl">
             <CardContent className="p-12 text-center">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
               
-              <h1 className="text-4xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Thank You!
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 We've received your message and will get back to you within 24 hours. 
                 Our team is excited to help grow your business online!
               </p>
               
               <div className="space-y-4 mb-8">
-                <div className="flex items-center justify-center gap-3 text-gray-700">
+                <div className="flex items-center justify-center gap-3 text-gray-700 dark:text-gray-300">
                   <Clock className="w-5 h-5 text-blue-600" />
                   <span>Response within 24 hours</span>
                 </div>
-                <div className="flex items-center justify-center gap-3 text-gray-700">
+                <div className="flex items-center justify-center gap-3 text-gray-700 dark:text-gray-300">
                   <Phone className="w-5 h-5 text-blue-600" />
                   <span>Call us at +1 (830) 928-9196 for immediate assistance</span>
                 </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
               
               <Button 
                 onClick={() => window.location.href = '/'}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+                className="bg-primary hover:bg-primary-hover text-white px-8 py-3"
               >
                 Return to Home
               </Button>
@@ -154,10 +154,10 @@ export default function ContactPage() {
             <Badge className="bg-blue-600 text-white px-4 py-2 text-lg font-semibold mb-6">
               Get In Touch
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">
               Ready to Grow Your Business?
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               Get a free consultation and learn how we can help you attract more customers 
               and increase revenue with professional digital marketing.
             </p>
@@ -172,10 +172,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">
                   Get Your Free Consultation
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                   Fill out the form below and we'll get back to you within 24 hours with a 
                   custom strategy for your business.
                 </p>
@@ -344,10 +344,10 @@ export default function ContactPage() {
             <div className="space-y-8">
               <AnimatedSection direction="right" delay={0.2}>
                 <div>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                  <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6">
                     Get In Touch Today
                   </h2>
-                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
                     Ready to start growing your business? We're here to help with any questions 
                     about our services or to discuss your specific needs.
                   </p>
@@ -357,7 +357,7 @@ export default function ContactPage() {
               {/* Contact Methods */}
               <div className="space-y-6">
                 <AnimatedCard delay={0.3}>
-                  <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+                  <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 shadow-soft-md hover:shadow-soft-lg transform transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:shadow-none motion-reduce:transition-none">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -374,7 +374,7 @@ export default function ContactPage() {
                 </AnimatedCard>
 
                 <AnimatedCard delay={0.4}>
-                  <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
+                  <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 shadow-soft-md hover:shadow-soft-lg transform transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:shadow-none motion-reduce:transition-none">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
@@ -391,7 +391,7 @@ export default function ContactPage() {
                 </AnimatedCard>
 
                 <AnimatedCard delay={0.5}>
-                  <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg">
+                  <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-soft-md hover:shadow-soft-lg transform transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:shadow-none motion-reduce:transition-none">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -409,9 +409,9 @@ export default function ContactPage() {
               </div>
 
               {/* What to Expect */}
-              <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg">
+              <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-soft-md hover:shadow-soft-lg transform transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:shadow-none motion-reduce:transition-none">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6">
                     What to Expect
                   </h3>
                   <div className="space-y-4">
@@ -458,10 +458,10 @@ export default function ContactPage() {
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6">
               Have Questions?
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               Check out our frequently asked questions or get in touch for personalized answers.
             </p>
             <Button 

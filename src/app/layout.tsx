@@ -5,6 +5,7 @@ import { Header } from "@/components/shell/header";
 import { Footer } from "@/components/shell/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -53,8 +54,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
-        <ThemeProvider defaultTheme="light" storageKey="siteforger-theme">
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function(){
+              try {
+                var storageKey = 'siteforger-theme';
+                var saved = localStorage.getItem(storageKey);
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
+                var root = document.documentElement;
+                root.classList.remove('light','dark');
+                root.classList.add(theme);
+              } catch (e) {}
+            })();
+          `}
+        </Script>
+      </head>
+      <body className="font-sans antialiased min-h-screen">
+        <ThemeProvider defaultTheme="system" storageKey="siteforger-theme">
           <Header />
           <main>{children}</main>
           <Footer />

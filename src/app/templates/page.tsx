@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -38,39 +39,30 @@ export default function TemplatesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-gray-950">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 py-24 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-4 relative">
+      <section className="py-24">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="bg-white/10 text-white border-white/20 mb-6 px-4 py-2">
-              <Sparkles className="w-4 h-4 mr-2" />
+            <Badge className="mb-6 px-4 py-2 bg-secondary dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800">
+              <Sparkles className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
               Professional Website Templates
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Choose Your
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">Perfect Design</span>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">
+              Choose Your Perfect Design
             </h1>
-            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Three distinct design styles, each crafted to convert visitors into customers.
-              Every template is mobile-optimized and ready to generate leads.
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+              Three distinct styles, each crafted to convert visitors into customers. Mobile‑optimized and ready to generate leads.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-soft-lg">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary-hover text-white shadow-soft-lg">
                 <Link href="/contact">
-                  Get Started Today
+                  Get a free quote
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                <Link href="/services">
-                  View Services
-                </Link>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/services">View services</Link>
               </Button>
             </div>
           </div>
@@ -82,10 +74,10 @@ export default function TemplatesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">
                 Three Unique Styles
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Each template has its own personality - find the one that matches your brand
               </p>
             </div>
@@ -99,52 +91,56 @@ export default function TemplatesPage() {
                   <div key={template.id} className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
                     {/* Preview Card */}
                     <div className={`${!isEven ? 'lg:order-2' : ''}`}>
-                      <div className={`relative group rounded-3xl overflow-hidden shadow-soft-xl ${style.previewBg} aspect-[4/3]`}>
+                      <div className={`relative group rounded-3xl overflow-hidden shadow-soft-md hover:shadow-soft-xl ${style.previewBg} aspect-[4/3] transform transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:shadow-none motion-reduce:transition-none`}
+                      >
                         {/* Template Preview Image */}
-                        <img
+                        <Image
                           src={template.thumbnail}
                           alt={`${template.name} template preview`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-300"
+                          priority={index === 0}
                         />
 
                         {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-center pb-8">
+                        <div className="absolute inset-0 bg-black/30 dark:bg-black/20 opacity-0 group-hover:opacity-80 transition-all duration-200 flex items-end justify-center pb-8">
                           <Button asChild size="lg" className={`${style.buttonClass} text-white shadow-soft-lg`}>
                             <Link href={`/templates/${template.id}`}>
-                              View Live Demo
-                              <ArrowRight className="ml-2 w-5 h-5" />
-                            </Link>
-                          </Button>
+                          View live demo
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Link>
+                      </Button>
                         </div>
 
                         {/* Template Badge */}
-                        <Badge className={`absolute top-4 left-4 ${style.badgeClass} border`}>
+                        <Badge className={`absolute top-4 left-4 ${style.badgeClass} border`}> 
                           {template.tagline}
                         </Badge>
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className={`${!isEven ? 'lg:order-1' : ''} space-y-6`}>
+                    <div className={`${!isEven ? 'lg:order-1' : ''} space-y-5`}>
                       <div>
-                        <h3 className="text-4xl font-bold text-gray-900 mb-2">
+                        <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2">
                           {template.name}
                         </h3>
-                        <p className="text-xl text-blue-600 font-medium mb-4">
+                        <p className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-3">
                           {template.tagline}
                         </p>
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                           {template.description}
                         </p>
                       </div>
 
                       {/* Features */}
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-gray-900">Key Features:</h4>
+                        <h4 className="font-semibold text-gray-900 dark:text-white">Key Features:</h4>
                         {template.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-start space-x-3">
-                            <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-600">{feature}</span>
+                            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -152,7 +148,7 @@ export default function TemplatesPage() {
                       {/* Best For */}
                       <div className="flex flex-wrap gap-2">
                         {template.bestFor.map((use, useIndex) => (
-                          <Badge key={useIndex} variant="secondary" className="bg-gray-100 text-gray-700">
+                          <Badge key={useIndex} variant="secondary" className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
                             {use}
                           </Badge>
                         ))}
@@ -175,14 +171,14 @@ export default function TemplatesPage() {
       </section>
 
       {/* Why Our Templates Work */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                 Why Our Templates Convert
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Every template is built with proven conversion strategies
               </p>
             </div>
@@ -196,15 +192,15 @@ export default function TemplatesPage() {
                 { icon: CheckCircle, title: "Easy to Customize", desc: "Simple to update content, add photos, and make it uniquely yours." },
                 { icon: Zap, title: "Proven Results", desc: "Design patterns tested and refined to maximize conversions." }
               ].map((item, index) => (
-                <Card key={index} className="bg-white border-0 shadow-soft-md hover:shadow-soft-lg transition-all duration-300">
+                <Card key={index} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-soft-md hover:shadow-soft-lg transition-all duration-300">
                   <CardContent className="p-8 text-center">
-                    <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <item.icon className="w-7 h-7 text-blue-600" />
+                    <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       {item.desc}
                     </p>
                   </CardContent>
@@ -216,29 +212,20 @@ export default function TemplatesPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-4 relative">
+      <section className="py-24">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-blue-100 mb-10">
-              Get your professional website launched in just 7 days with our proven templates
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Ready to Get Started?</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">Launch a professional site in just 7 days with our proven templates.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-soft-lg">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary-hover text-white shadow-soft-lg">
                 <Link href="/contact">
                   Get Started Today
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                <Link href="/about">
-                  Learn About Us
-                </Link>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/about">Learn About Us</Link>
               </Button>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { CheckCircle, Clock, Smartphone, TrendingUp, Shield, Headphones, Target } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const valueProps = [
   {
@@ -6,147 +7,103 @@ const valueProps = [
     title: "Fast Turnaround",
     description: "Your website will be live in 7 days or less. No lengthy development cycles or endless revisions.",
     highlight: "7-Day Delivery",
-    color: "from-blue-500 to-cyan-500"
   },
   {
     icon: Smartphone,
     title: "Mobile-First Design",
     description: "Every website is optimized for mobile devices where 70% of your customers will find you.",
     highlight: "Mobile Optimized",
-    color: "from-purple-500 to-pink-500"
   },
   {
     icon: TrendingUp,
     title: "Built for Conversions",
     description: "Strategic design elements that turn website visitors into paying customers and phone calls.",
     highlight: "More Leads",
-    color: "from-green-500 to-emerald-500"
   },
   {
     icon: Shield,
     title: "Secure & Reliable",
     description: "Enterprise-grade hosting with 99.9% uptime guarantee. Your website stays online 24/7.",
     highlight: "99.9% Uptime",
-    color: "from-orange-500 to-red-500"
   },
   {
     icon: CheckCircle,
     title: "SEO Included",
     description: "Built-in search engine optimization to help customers find your business on Google.",
     highlight: "Google Ready",
-    color: "from-indigo-500 to-blue-500"
   },
   {
     icon: Headphones,
     title: "Ongoing Support",
     description: "Free updates, maintenance, and support for the first year. We're here when you need us.",
     highlight: "1-Year Support",
-    color: "from-teal-500 to-green-500"
   }
 ];
 
 export function ValueProps() {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full px-6 py-3 mb-6">
-            <Target className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-bold text-blue-700">Why Choose Us</span>
+          <div className="inline-flex items-center gap-2 rounded-full px-6 py-3 mb-6 bg-primary/10 text-primary border border-primary/20">
+            <Target className="w-5 h-5" />
+            <span className="text-sm font-bold">Why Choose Us</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
             Why{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Blue-Collar Businesses
-            </span>
+            <span className="text-primary">Blue-Collar Businesses</span>
             {' '}Choose Site Forger
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            We understand your industry and build websites that actually work for contractors, 
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            We understand your industry and build websites that actually work for contractors,
             service providers, and skilled trades. Here's what makes us different.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {valueProps.map((prop, index) => (
-            <div 
-              key={index} 
-              className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-gray-100 hover:border-transparent overflow-hidden"
-              style={{
-                animationDelay: `${index * 150}ms`
-              }}
+            <div
+              key={index}
+              className="group relative bg-card rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border border-border overflow-hidden"
             >
-              {/* Gradient Border on Hover */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${prop.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
-              <div className="absolute inset-[2px] bg-white rounded-2xl"></div>
-              
               <div className="relative z-10">
-                {/* Icon */}
                 <div className="relative mb-6">
-                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${prop.color} shadow-lg`}>
-                    <prop.icon className="w-8 h-8 text-white" />
-                  </div>
-                  {/* Floating highlight badge */}
-                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
-                    {prop.highlight}
+                  <div className="inline-flex p-4 rounded-xl bg-primary/10">
+                    <prop.icon className="w-8 h-8 text-primary" />
                   </div>
                 </div>
 
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">
                   {prop.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-base">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   {prop.description}
                 </p>
-
-                {/* Decorative Element */}
-                <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${prop.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-full`}></div>
               </div>
-
-              {/* Background Glow Effect */}
-              <div className={`absolute top-4 right-4 w-32 h-32 bg-gradient-to-br ${prop.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}></div>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center shadow-2xl">
+        <div className="rounded-3xl p-12 text-center bg-card border border-border">
           <div className="max-w-3xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h3>
-            <p className="text-xl text-blue-100 mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-card-foreground">Ready to Get Started?</h3>
+            <p className="text-xl text-muted-foreground mb-8">
               Let us build your professional website that drives real results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-colors duration-300"
-              >
-                Get Your Free Quote
-              </a>
-              <a
-                href="tel:+18309289196"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors duration-300 border-2 border-white/20"
-              >
-                <Headphones className="w-5 h-5 mr-2" />
-                Call +1 (830) 928-9196
-              </a>
+              <Button asChild size="lg">
+                <a href="/contact">Get Your Free Quote</a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href="tel:+18309289196" className="flex items-center gap-2">
+                  <Headphones className="w-5 h-5" />
+                  Call +1 (830) 928-9196
+                </a>
+              </Button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-6 h-6 bg-blue-400 rounded-full animate-bounce opacity-30"></div>
-      <div className="absolute top-40 right-20 w-4 h-4 bg-purple-400 rounded-full animate-bounce opacity-30" style={{animationDelay: '0.5s'}}></div>
-      <div className="absolute bottom-20 left-1/4 w-5 h-5 bg-green-400 rounded-full animate-bounce opacity-30" style={{animationDelay: '1s'}}></div>
     </section>
   );
 }
